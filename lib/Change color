@@ -1,0 +1,44 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+Color rectColor = Color(0xff0a0a0a);
+Size rectSize = Size(200, 200);v
+oid main() {  runApp(MyApp());}
+class MyApp extends StatelessWidget 
+@override  
+Widget build(BuildContext context)
+{   
+return MaterialApp(  
+home: MyHomePage(),    );  }}
+class MyHomePage extends StatefulWidget { 
+@override  
+_MyHomePageState createState() => _MyHomePageState();}
+class _MyHomePageState extends State<MyHomePage> {
+@override 
+Widget build(BuildContext context) { 
+return Scaffold(    
+body: ListView(
+children: <Widget>[
+        Container( 
+        width: 400,          
+        height: 400,   
+        child:CustomPaint( 
+        painter: OpenPainter(),  
+        ),    
+        ),   
+        ]),   
+        floatingActionButton: FloatingActionButton( 
+        child:Icon(Icons.refresh),
+        onPressed: () {   
+        setState(() {    
+        rectColor=Color(0xFFCB1919); 
+        rectSize=Size(200,200);      
+        });      },      ),    );  }}
+        class OpenPainter extends CustomPainter {
+  @override 
+  void paint(Canvas canvas, Size size)
+  {    var paint1 = Paint()   
+  ..color = rectColor      ..style = PaintingStyle.fill;
+  canvas.drawRect(Offset(100, 100) & rectSize, paint1);
+  } 
+  bool shouldRepaint(CustomPainter oldDelegate) => true;
+  }
